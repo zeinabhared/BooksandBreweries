@@ -1,17 +1,19 @@
+var input = document.getElementById("cityInput");
 var submit = document.getElementById("cityInputSubmit");
-
+console.log(submit);
 //function to make sure only one checkbox can be selected at a time
-// $(document).ready(function(){
-//     $('.check').click(function() {
-//         $('.check').not(this).prop('checked', false);
-//     });
-//   });
+$(document).ready(function(){
+    $('.check').click(function() {
+        $('.check').not(this).prop('checked', false);
+    });
+  });
 
 document.getElementById("cityInputSubmit").addEventListener("click", function(event) {
     event.preventDefault();
-    // let selectedRadius = $("select").val();
-    // let cityName = "Seattle, WA";
-    console.log('Test!');
+    let selectedRadius = $("select").val();
+    let cityName = "Seattle, WA";
+    console.log(selectedRadius);
+    console.log(cityName);
     // mapTask(selectedRadius, cityName, searchTerm);
 });
 

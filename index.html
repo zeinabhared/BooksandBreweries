@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css"/>
     <title>Books and Breweries</title>
 </head>
 <body>
     <main>
-              
-        <button class="button" type="button" id="cityInputSubmit">Start</button>
-        <div id="map"></div>
+                  <!-- main form to grab the user inputs-->
+                  <form data-abide novalidate>
+                    <div class="transbox">
+                                    <div class="cell small-12">
+                                      <!-- grab user location-->
+                                      <label>LOCATION:
+                                        <input type="text" id="cityInput" placeholder="Seattle, WA" aria-describedby="exampleHelpTextPassword" required >
+                                      </label>
+                                    </div>
+                                  <div class="cell medium-6">
+                                    <!--grab radius of search-->
+                                    <label>HOW CLOSE?
+                                      <select id="select" required>
+                                        <option value=""></option>
+                                        <option value="1609">1 miles</option>
+                                        <option value="8047">5 miles</option>
+                                        <option value="16093">10 miles</option>
+                                        <option value="24140">15 miles</option>
+                                        <option value="32186">20 miles</option>
+                                      </select>
+                                    </label>
+                                  </div>
+                                  <div class="my-center">
+                                    <!-- grab criteria for pet activity-->
+                                      <label><div>WHAT ARE YOU LOOKING FOR?</div>
+                                    <fieldset>
+                                      <input class="check" id="checkbox1" type="checkbox"><label for="checkbox1">  <i class="fa-solid fa-dog fa-bounce"></i>Breweries</label>
+                                      <input class="check" id="checkbox2" type="checkbox" required><label for="checkbox2"> <i class="fa-solid fa-bone-break"></i>Beer</label>
+                                      <input class="check" id="checkbox3" type="checkbox"><label for="checkbox3"> <i class="fa-solid fa-bowl-food"></i>Cidar</label>
+                                    </label>
+                                    </fieldset>
+                                  </div>
+                                  <div class="my-center">
+                                    <fieldset class="cell medium-6">
+                                      <button class="button" type="button" id="cityInputSubmit" value="Submit">Submit</button>
+                                    </fieldset>
+                                  </div>
+                              </div>
+                                </form>
+
+                                <div id="map"></div>
     </main>
     <p>Test</p>
-    <script href="./public/js/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+    <script src="./public/js/index.js"></script>
 </body>
 </html>
