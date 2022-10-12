@@ -4,8 +4,27 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "fs": "^0.0.1-security",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
     "sequelize": "^6.24.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "booksandbreweries",
+  "description": "https://zeinabhared.github.io/BooksandBreweries/",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeinabhared/BooksandBreweries.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeinabhared/BooksandBreweries/issues"
+  },
+  "homepage": "https://github.com/zeinabhared/BooksandBreweries#readme"
 }
