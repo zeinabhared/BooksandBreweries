@@ -20,33 +20,33 @@ Books.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    genre:{
+    infotext:{
       type: DataType.STRING,
       allowNull:false,
     
     },
-    stock:{
-      type: DataType.INTEGER,
+    rating:{
+      type: DataType.DECIMAL,
       allowNull:false,
-      default:10,
+      default:5,
       validate:{
         isNumeric:true,
       },
     },
-    category_id:{
-      type: DataType.INTEGER,
-      references:{
-        model:'category',
-        key: 'id',
-      },
-    },
+    // category_id:{
+    //   type: DataType.INTEGER,
+    //   references:{
+    //     model:'category',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'books',
   }
 );
 
