@@ -32,6 +32,5 @@ const user = require('./User');
 module.exports = {
   Books,
   User,
-  Places,
-
-};
+  Places
+}
