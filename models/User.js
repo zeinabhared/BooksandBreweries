@@ -1,0 +1,31 @@
+const { Model, DataTypes } = require('sequelize');
+
+const sequelize = require('../config/connection.js');
+
+class USER extends Model { }
+
+USER.init(
+  {
+    // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+  }
+
+);
+
+module.exports = USER;
