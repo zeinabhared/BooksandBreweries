@@ -1,4 +1,4 @@
-['ba','baa','babe','baby','baccalaureate','baccalaureates','bacchanalians','bach','bachelor','bachelorette','bachelorettes','bachelorhoods',
+var randomBWords = ['ba','baa','babe','baby','baccalaureate','baccalaureates','bacchanalians','bach','bachelor','bachelorette','bachelorettes','bachelorhoods',
 'bacillus','back','backboard','backbone','backbreaking','backcountries','backcountry','backcourt','backdoor','backdrop','backed','backfield',
 'backfire','backgammon','background','backgrounder','backgrounders','backgrounding','backhand','backhanded','backing','backlash','backlight',
 'backlog','backpack','backpedalling','backroom','backscatter','backscattered','backscattering','backscatterings','backside','backstabbings',
