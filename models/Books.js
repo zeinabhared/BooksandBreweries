@@ -20,7 +20,7 @@ Books.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    genre:{
+    infotext:{
       type: DataType.STRING,
       allowNull:false,
     

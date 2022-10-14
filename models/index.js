@@ -22,7 +22,7 @@ const user = require('./User');
 
 // A.belongsToMany(B, { through: 'C' });
 // A belongToMany C (through C)
-//EXAMPLE//
+  //EXAMPLE//
 // Product.belongsToMany(Tag, {
 //   through: 'tag_id',
 
