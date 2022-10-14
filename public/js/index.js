@@ -2,6 +2,7 @@ var cityinput = document.getElementById("cityInput");
 var citysubmit = document.getElementById("cityInputSubmit");
 var bookinput = document.getElementById("bookInput");
 var booksubmit = document.getElementById("bookInputSubmit");
+var logo_name = document.getElementById("logo_name");
 
 //function to make sure only one checkbox can be selected at a time
 $(document).ready(function(){
@@ -9,6 +10,22 @@ $(document).ready(function(){
         $('.check').not(this).prop('checked', false);
     });
   });
+  document.getElementById("logo_name").addEventListener("click", function(event) {
+    event.preventDefault();
+    let randomBWordsArraySelected = randomBWordselected();
+    console.log(randomBWordsArraySelected);
+    document.getElementById("logo_name").textContent = `${randomBWords[randomBWordsArraySelected[0]]} and ${randomBWords[randomBWordsArraySelected[1]]}`
+});
+
+function randomBWordselected() {
+    let randomBWordarray = [];
+    while (randomBWordarray.length < 2) {
+        var randomnumber = Math.floor(Math.random() * randomBWords.length);
+        if(randomBWordarray.indexOf(randomnumber) === -1) randomBWordarray.push(randomnumber);
+    }
+    return randomBWordarray;
+}
+
 
 document.getElementById("cityInputSubmit").addEventListener("click", function(event) {
     event.preventDefault();

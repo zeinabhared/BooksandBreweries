@@ -11,6 +11,14 @@
   /* The width is the width of the web page */
   margin: 0% 4% 4% 4%;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 
 :root {
   --blue: #007bff;
