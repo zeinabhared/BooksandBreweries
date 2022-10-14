@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3001;
 // Create the Handlebars.js engine object with custom helper functions
 const hbs = handlebars.create({ helpers });
 
+//Need to add sequlize session//
+
 // Inform Express.js which template engine we're using
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

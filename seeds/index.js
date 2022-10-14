@@ -11,8 +11,8 @@ const seedAll = async () => {
   await seedBooks();
   console.log('\n----- Books SEEDED -----\n');
 
-  await seedPlaces();
-  console.log('\n----- Places SEEDED -----\n');
+  // await seedPlaces();
+  // console.log('\n----- Places SEEDED -----\n');
 
   await seedUSER();
   console.log('\n----- USER SEEDED -----\n');

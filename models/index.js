@@ -1,7 +1,7 @@
 // import models
-const books = require('./Books');
-const places = require('./Places');
-const user = require('./User');
+const Books = require('./Books');
+const Places = require('./Places');
+const User = require('./User');
 
 // // A belongsTo B
 // A.belongsTo(B, {

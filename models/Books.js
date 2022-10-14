@@ -21,14 +21,14 @@ Books.init(
       allowNull: false,
     },
     infotext:{
-      type: DataType.STRING,
+      type: DataTypes.STRING,
       allowNull:false,
     
     },
     rating:{
-      type: DataType.DECIMAL,
+      type: DataTypes.DECIMAL,
       allowNull:false,
-      default:5,
+      defaultValue:5,
       validate:{
         isNumeric:true,
       },
@@ -50,4 +50,4 @@ Books.init(
   }
 );
 
-module.exports = Product;
+module.exports = Books;
