@@ -1,13 +1,13 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connection.js');
 
-// Initialize Product model (table) by extending off Sequelize's Model class
-class Books extends Model { }
+// Initialize Books model (table) by extending off Sequelize's Model class
+class BOOK extends Model { }
 
-// set up fields and rules for Product model
-Books.init(
+// set up fields and rules for Books model
+BOOK.init(
   {
     // define columns
     id: {
@@ -21,12 +21,12 @@ Books.init(
       allowNull: false,
     },
     infotext:{
-      type: DataType.STRING,
+      type: DataTypes.STRING,
       allowNull:false,
     
     },
     rating:{
-      type: DataType.DECIMAL,
+      type: DataTypes.DECIMAL,
       allowNull:false,
       default:5,
       validate:{
@@ -50,4 +50,4 @@ Books.init(
   }
 );
 
-module.exports = Product;
+module.exports = BOOK;

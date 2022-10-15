@@ -1,7 +1,7 @@
 // import models
 const books = require('./Books');
-const places = require('./Places');
-const user = require('./User');
+const places = require('./Places.js');
+const user = require('./User.js');
 
 // // A belongsTo B
 // A.belongsTo(B, {
@@ -30,7 +30,7 @@ const user = require('./User');
 
 
 module.exports = {
-  Books,
-  User,
-  Places
+  books,
+  user,
+  places
 }
