@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { appendFile } = require('fs');
-const {Category, Books} = require('../../models');
+const {Category, Book} = require('../../models');
 
 // The `/api/categories` endpoint
 
@@ -9,7 +9,7 @@ Category.findAll({include:[Books]}).then(booksData => res.json(booksData)).catch
 });
 
 router.get('/:id', (req, res) => {
- Category.findOne({where:{id:req.params.id},include:[Books]}).then(booksData => res.json(booksData)).catch(err => res.json(err))
+ Category.findOne({where:{id:req.params.id},include:[Books]}).then(BookData => res.json(booksData)).catch(err => res.json(err))
 });
 
 router.post('/', (req, res) => {
