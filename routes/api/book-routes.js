@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { appendFile } = require('fs');
 const {Category, Books} = require('../../models');
 
 // The `/api/categories` endpoint
