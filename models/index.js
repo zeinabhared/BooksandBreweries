@@ -2,6 +2,7 @@
 const books = require('./Books');
 const places = require('./Places.js');
 const user = require('./User.js');
+const random = require('./Random.js');
 
 // // A belongsTo B
 // A.belongsTo(B, {
@@ -32,5 +33,6 @@ const user = require('./User.js');
 module.exports = {
   books,
   user,
-  places
+  places,
+  random
 }
