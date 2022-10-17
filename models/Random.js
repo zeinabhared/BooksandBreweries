@@ -16,7 +16,7 @@ RANDOM.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    randomWord: {
+    random_word: {
       type: DataTypes.STRING,
       allowNull: false,
     }
