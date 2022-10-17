@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { appendFile } = require('fs');
-const {Book} = require('../../models');
+const Book = require('../../models/Books');
 
 router.get('/api/:bookinput', (req, res) => {
   let bookInfo = req.params.bookinput.toLowerCase();
