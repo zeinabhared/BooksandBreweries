@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const { appendFile } = require('fs');
-const {Random} = require('../../models');
+const Random = require('../../models/Random');
 
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
-Random.findAll({include:[Random]}).then(randomData => res.json(randomData)).catch(err => res.json(err))
+router.get('/', async (req, res) => {
+    const randomData = await Random.findAll().catch((err) => {
+        res.json(err);
+    });
+    res.json(randomData);
 });
-
 
 module.exports = router;

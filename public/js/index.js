@@ -12,6 +12,18 @@ $(document).ready(function(){
   });
   document.getElementById("logo_name").addEventListener("click", function(event) {
     event.preventDefault();
+    
+    // blocked by CORS policy
+    // const getTerms = async () => {
+    //   const result = await fetch('http://localhost:3001/random', {
+    //     method: 'GET',
+    //   });
+    //   const json = await result.json();
+    //   return json;
+    // };
+    // getTerms().then((response) => response.forEach((item) => console.log(item))); 
+    
+    
     let randomBWordsArraySelected = randomBWordselected();
     console.log(randomBWordsArraySelected);
     document.getElementById("logo_name").textContent = `${randomBWords[randomBWordsArraySelected[0]]} and ${randomBWords[randomBWordsArraySelected[1]]}`
@@ -114,6 +126,7 @@ document.getElementById("bookInputSubmit").addEventListener("click", function(ev
   const Booklist = document.getElementById("content");
   removeAllChildNodes(Booklist);
   bookapi();
+  //getTerms().then((response) => response.forEach((item) => console.log(item)));
 });
 
 function bookapi() {
@@ -132,7 +145,16 @@ function bookapi() {
         return data;
     })
     return bookData;
+};
+
+const getTerms = async () => {
+    const result = await fetch('http://localhost:3001/books/api/test', {
+      method: 'GET',
+    });
+    const json = await result.json();
+    return json;
 }
+
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
