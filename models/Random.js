@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 // Initialize Random model (table) by extending off Sequelize's Model class
-class RANDOM extends Model { }
+class Random extends Model { }
 
 // set up fields and rules for Randoms model
-RANDOM.init(
+Random.init(
   {
     // define columns
     id: {
@@ -30,4 +30,4 @@ RANDOM.init(
   }
 );
 
-module.exports = RANDOM;
+module.exports = Random;

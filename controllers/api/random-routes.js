@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { appendFile } = require('fs');
 const Random = require('../../models/Random');
-
+const apiKey = process.env.api;
 // The `/api/categories` endpoint
 
 router.get('/:count', async (req, res) => {
+    console.log(apiKey);
     const count = req.params.count.toLowerCase();
     const randomData = await Random.findAll().catch((err) => {
         res.json(err);

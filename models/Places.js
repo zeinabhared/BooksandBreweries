@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
 
 // Initialize Places model (table) by extending off Sequelize's Model class
-class PLACE extends Model { }
+class Place extends Model { }
 
 // set up fields and rules for Places model
-PLACE.init(
+Place.init(
   {
     // define columns
     id: {
@@ -16,30 +16,32 @@ PLACE.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    infotext:{
+    address1: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    city:{
       type: DataTypes.STRING,
       allowNull:false,
     
     },
-    rating:{
-      type: DataTypes.DECIMAL,
+    state:{
+      type: DataTypes.STRING,
       allowNull:false,
-      default:5,
-      validate:{
-        isNumeric:true,
-      },
+    
     },
-    // category_id:{
-    //   type: DataType.INTEGER,
-    //   references:{
-    //     model:'category',
-    //     key: 'id',
-    //   },
-    // },
+    zip:{
+      type: DataTypes.INTEGER,
+      allowNull: false,    
+    },
   },
   {
     sequelize,
@@ -50,4 +52,4 @@ PLACE.init(
   }
 );
 
-module.exports = PLACE;
+module.exports = Place;

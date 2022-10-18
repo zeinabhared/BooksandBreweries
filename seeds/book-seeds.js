@@ -1,4 +1,4 @@
-const { Books } = require('../models');
+const { Book } = require('../models');
 
 const booksData = [
   {
@@ -24,6 +24,6 @@ const booksData = [
   },
 ];
 
-const seedBooks = () => Books.bulkCreate(booksData);
+const seedBooks = () => Book.bulkCreate(booksData);
 
 module.exports = seedBooks;

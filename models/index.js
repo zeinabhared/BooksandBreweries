@@ -1,8 +1,8 @@
 // import models
-const books = require('./Books.js');
-const places = require('./Places.js');
-const user = require('./User.js');
-const random = require('./Random.js');
+const Book = require('./Books.js');
+const Places = require('./Places.js');
+const User = require('./User.js');
+const Random = require('./Random.js');
 
 // // A belongsTo B
 // A.belongsTo(B, {
@@ -31,8 +31,8 @@ const random = require('./Random.js');
 
 
 module.exports = {
-  books,
-  user,
-  places,
-  random
+  Book,
+  User,
+  Places,
+  Random
 }
