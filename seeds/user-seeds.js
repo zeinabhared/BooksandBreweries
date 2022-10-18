@@ -4,28 +4,28 @@ const userData = [
   {
     name: 'Dave',
     email: 'Dave@gmail.com',
-    password: "asdkjfadskfjas"
+    password: "password12345"
   },
   {
     name: 'Bob',
     email: 'bob@gmail.com',
-    password: "asdkjfadskfjas"
+    password: "password12345"
 
   },
   {
-    name: 'The Da Vinci Code',
-    email: 'The Da Vinci Code',
-    password: "asdkjfadskfjas"
+    name: 'Jessica',
+    email: 'jessica123@hotmail.com',
+    password: "password12345"
   },
   {
-    name: 'The Da Vinci Code',
-    email: 'The Da Vinci Code',
-    password: "asdkjfadskfjas"
+    name: 'Nichole',
+    email: 'nichole.22@hotmail.com',
+    password: "password12345"
   },
   {
-    name: 'The Da Vinci Code',
-    email: 'The Da Vinci Code',
-    password: "asdkjfadskfjas"
+    name: 'Kimberly',
+    email: 'kim123@gmail.com',
+    password: "password12345"
   },
 ];
 
