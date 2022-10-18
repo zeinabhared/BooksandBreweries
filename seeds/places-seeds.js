@@ -6,21 +6,21 @@ const placesData = [
     brewery: "192 Brewing"
   },
   {
-    title: 'Dimond Knot Brewery',
-    infotext: "Mukilteo"
+    brewery: 'Dimond Knot Brewery',
+    city: "Mukilteo"
 
   },
   {
-    title: '20 Corners Brewing',
-    infotext: "Woodinville"
+    brewery: '20 Corners Brewing',
+    city: "Woodinville"
   },
   {
-    title: 'Black Raven Brewing',
-    infotext: "Redmond"
+    brewery: 'Black Raven Brewing',
+    city: "Redmond"
   },
   {
-    title: 'Scuttlebutt Brewing',
-    infotext: "Everett"
+    brewery: 'Scuttlebutt Brewing',
+    city: "Everett"
   },
 ];
 
