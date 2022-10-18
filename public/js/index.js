@@ -13,31 +13,16 @@ $(document).ready(function(){
   document.getElementById("logo_name").addEventListener("click", function(event) {
     event.preventDefault();
     
-    // blocked by CORS policy
-    // const getTerms = async () => {
-    //   const result = await fetch('http://localhost:3001/random', {
-    //     method: 'GET',
-    //   });
-    //   const json = await result.json();
-    //   return json;
-    // };
-    // getTerms().then((response) => response.forEach((item) => console.log(item))); 
-    
-    
-    let randomBWordsArraySelected = randomBWordselected();
-    console.log(randomBWordsArraySelected);
-    document.getElementById("logo_name").textContent = `${randomBWords[randomBWordsArraySelected[0]]} and ${randomBWords[randomBWordsArraySelected[1]]}`
+    const getTerms = async () => {
+      const count = 2;
+      const result = await fetch(`http://localhost:3001/api/random/${count}`, {
+        method: 'GET',
+      });
+      const json = await result.json();
+      return json;
+    };
+    getTerms().then((response) => document.getElementById("logo_name").textContent = `${response[0].random_word} and ${response[1].random_word}`);    
 });
-
-function randomBWordselected() {
-    let randomBWordarray = [];
-    while (randomBWordarray.length < 2) {
-        var randomnumber = Math.floor(Math.random() * randomBWords.length);
-        if(randomBWordarray.indexOf(randomnumber) === -1) randomBWordarray.push(randomnumber);
-    }
-    return randomBWordarray;
-}
-
 
 document.getElementById("cityInputSubmit").addEventListener("click", function(event) {
     event.preventDefault();
