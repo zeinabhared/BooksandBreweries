@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
@@ -16,7 +18,6 @@
   "description": "https://zeinabhared.github.io/BooksandBreweries/",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zeinabhared/BooksandBreweries.git"
