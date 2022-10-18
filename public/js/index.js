@@ -3,6 +3,45 @@ var citysubmit = document.getElementById("cityInputSubmit");
 var bookinput = document.getElementById("bookInput");
 var booksubmit = document.getElementById("bookInputSubmit");
 var logo_name = document.getElementById("logo_name");
+const userNameInput = document.getElementById('name-signup');
+const emailInput = document.getElementById('email-signup');
+const passwordInput = document.getElementById('password-field');
+const signupsubmit = document.getElementById('signup-form');
+
+// Listen for when the form is submitted
+document.getElementById("signup-form").addEventListener("click", function(event) {
+  event.preventDefault();
+
+  // Create a new user object from the input values
+  const newUser = {
+    username: userNameInput.value.trim(),
+    email: emailInput.value.trim(),
+    password: passwordInput.value.trim(),
+  };
+  console.log(newUser);
+  // Helper function that accepts a `user` object, sends a POST request and returns the result
+  const postUser = async (user) => {
+    // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
+    const result = await fetch('http://localhost:3001/api/user/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    })
+    const json = await result.json().then((data) => {
+        console.log('Successful POST request:', data);
+        return data;
+      })
+      .catch((error) => {
+        console.error('Error in POST request:', error);
+      });
+  }
+    // Call our postUser method to make a POST request with our `newUser` object.
+    postUser(newUser)
+    //.then((data) => console.log(data.body.user_id))
+    //.catch((err) => console.error(err));
+});
 
 //function to make sure only one checkbox can be selected at a time
 $(document).ready(function(){

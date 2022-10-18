@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const User = require('../../models/User');
 
 router.post('/', async (req, res) => {
   try {
@@ -57,6 +57,33 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.post('/new', async (req, res) => {
+  console.log('Direct hit!')
+
+  const { username, email, password } = req.body;
+  // If all the required properties are present
+  if (username && email && password) {
+    // Variable for the object we will save
+    const newUser = {
+      username,
+      email,
+      password,
+      user_id: 1, //need to get from SQL database
+    };
+
+    const response = {
+      status: 'success',
+      body: newUser,
+    };
+
+    console.log(response);
+    res.status(201).json(response);
+  } else {
+    res.status(500).json('Error in posting review');
+  }
+});
+
 
 module.exports = router;
 
