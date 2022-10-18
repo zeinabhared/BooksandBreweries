@@ -1599,7 +1599,7 @@
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 2px solid #ced4da;
     border-radius: 0.25rem;
     -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -2076,7 +2076,7 @@
     border-color: #007bff; }
     .btn-primary:hover {
       color: #fff;
-      background-color: #0069d9;
+      background-color: #ffffff;
       border-color: #0062cc; }
     .btn-primary:focus, .btn-primary.focus {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
@@ -8224,10 +8224,10 @@
   
   .form-control {
     background: transparent;
-    border: none;
+    border: 0;
     height: 50px;
     color: white !important;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 40px;
     padding-left: 20px;
