@@ -12,21 +12,21 @@ $(document).ready(function(){
   });
   document.getElementById("logo_name").addEventListener("click", function(event) {
     event.preventDefault();
-    
+    console.log("fired");
     // blocked by CORS policy
-    const getTerms = async () => {
-      const result = await fetch('http://localhost:3001/Random', {
-        mode: 'no-cors',
-        method: 'GET',
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        }
-      });
-      const json = await result.json();
+  //   const getTerms = async () => {
+  //     const result = await fetch('http://localhost:3001/api/random', {
+  //       // mode: 'no-cors',
+  //       method: 'GET',
+  //       // headers: {
+  //       //   "Access-Control-Allow-Origin": "*",
+  //       // }
+  //     });
+  //     const json = await result.json();
   
-      return json;
-    };
-  getTerms().then((response) => console.log(response));
+  //     return json;
+  //   };
+  // getTerms().then((response) => console.log(response));
     
     
     let randomBWordsArraySelected = randomBWordselected();
