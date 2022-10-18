@@ -1,8 +1,11 @@
 const router = require('express').Router();
 
-router.get('/login', function (req, res) {
-    console.log("HELLO")
-    res.render('login')
+router.get('/', (req,res) => {
+    res.render('homepage');
+   });
+
+router.get('/login', (req,res) => {
+ res.render('login');
 });
 
 
