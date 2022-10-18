@@ -61,12 +61,12 @@ router.post('/logout', (req, res) => {
 router.post('/new', async (req, res) => {
   console.log('Direct hit!')
 
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
   // If all the required properties are present
-  if (username && email && password) {
+  if (name && email && password) {
     // Variable for the object we will save
     const newUser = {
-      username,
+      name,
       email,
       password,
       user_id: 1, //need to get from SQL database
