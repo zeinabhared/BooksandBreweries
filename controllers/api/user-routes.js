@@ -60,8 +60,9 @@ router.post('/logout', (req, res) => {
 
 router.post('/new', async (req, res) => {
   console.log('Direct hit!')
+  console.log(req.body);
 
-  const { name, email, password } = req.body;
+  const { username: name, email, password } = req.body;
   // If all the required properties are present
   if (name && email && password) {
     // Variable for the object we will save
@@ -69,18 +70,26 @@ router.post('/new', async (req, res) => {
       name,
       email,
       password,
-      user_id: 1, //need to get from SQL database
+      //user_id: 1, //need to get from SQL database
     };
-
+    console.log(newUser);   
+    User.create(newUser)
+    .then((newUser) => {
+      res.json(newUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    })
+    ;
     const response = {
       status: 'success',
       body: newUser,
     };
 
     console.log(response);
-    res.status(201).json(response);
+    //res.status(201).json(response);
   } else {
-    res.status(500).json('Error in posting review');
+    //res.status(500).json('Error in posting review');
   }
 });
 

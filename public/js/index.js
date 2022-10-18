@@ -21,14 +21,14 @@ if (document.getElementById("signup-form")) {
     };
     console.log(newUser);
     // Helper function that accepts a `user` object, sends a POST request and returns the result
-    const postUser = async (user) => {
+    const postUser = async (newUser) => {
       // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
       const result = await fetch('http://localhost:3001/api/user/new', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(newUser),
       })
       const json = await result.json().then((data) => {
         console.log('Successful POST request:', data);
@@ -65,24 +65,26 @@ document.getElementById("logo_name").addEventListener("click", function (event) 
   getTerms().then((response) => document.getElementById("logo_name").textContent = `${response[0].random_word} and ${response[1].random_word}`);
 });
 
-document.getElementById("cityInputSubmit").addEventListener("click", function (event) {
-  event.preventDefault();
-  let searchTerm = '';
-  //checking to see what the user checked for pet preference
-  if ($('#checkbox1').prop('checked')) {
-    searchTerm = 'Breweries';
-  }
-  if ($('#checkbox2').prop('checked')) {
-    searchTerm = 'Beer';
-  }
-  if ($('#checkbox3').prop('checked')) {
-    searchTerm = 'Cidar';
-  }
-  let selectedRadius = $("select").val();
-  let address = cityinput.value || cityinput.placeholder;
-  console.log(address);
-  mapResults(address, searchTerm, selectedRadius);
-});
+if (document.getElementById("cityInputSubmit")) {
+  document.getElementById("cityInputSubmit").addEventListener("click", function (event) {
+    event.preventDefault();
+    let searchTerm = '';
+    //checking to see what the user checked for pet preference
+    if ($('#checkbox1').prop('checked')) {
+      searchTerm = 'Breweries';
+    }
+    if ($('#checkbox2').prop('checked')) {
+      searchTerm = 'Beer';
+    }
+    if ($('#checkbox3').prop('checked')) {
+      searchTerm = 'Cidar';
+    }
+    let selectedRadius = $("select").val();
+    let address = cityinput.value || cityinput.placeholder;
+    console.log(address);
+    mapResults(address, searchTerm, selectedRadius);
+  });
+};
 
 function geocoding(address) {
   const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyC1H0tMJF0rY1i56Pq9L_9SVYccaU_mJOE`
@@ -147,13 +149,16 @@ function mapResults(address, searchTerm, selectedRadius) {
     }
   });
 }
-document.getElementById("bookInputSubmit").addEventListener("click", function (event) {
-  event.preventDefault();
-  const Booklist = document.getElementById("content");
-  removeAllChildNodes(Booklist);
-  bookapi();
-  //getTerms().then((response) => response.forEach((item) => console.log(item)));
-});
+
+if (document.getElementById("bookInputSubmit")) {
+  document.getElementById("bookInputSubmit").addEventListener("click", function (event) {
+    event.preventDefault();
+    const Booklist = document.getElementById("content");
+    removeAllChildNodes(Booklist);
+    bookapi();
+    //getTerms().then((response) => response.forEach((item) => console.log(item)));
+  });
+};
 
 function bookapi() {
   let bookInfo = bookinput.value || bookinput.placeholder;
