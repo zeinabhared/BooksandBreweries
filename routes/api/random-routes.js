@@ -8,7 +8,12 @@ router.get('/', async (req, res) => {
     const randomData = await Random.findAll().catch((err) => {
         res.json(err);
     });
-    res.json(randomData);
+    const response = {
+        status: 'success',
+        body: randomData,
+      };
+      console.log("Well it fired");
+      res.status(200).json(randomData);
 });
 
 module.exports = router;

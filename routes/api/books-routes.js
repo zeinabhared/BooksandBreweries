@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { appendFile } = require('fs');
 const Book = require('../../models/Books');
 
+
 router.get('/api/:bookinput', (req, res) => {
   let bookInfo = req.params.bookinput.toLowerCase();
 //   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
@@ -19,7 +20,13 @@ router.get('/api/:bookinput', (req, res) => {
 //     }) 
 //     res.send(`${bookData}`);
 
-res.json(`Test is working ${bookInfo}!`);
+const response = {
+  status: 'success',
+  body: `Test is working ${bookInfo}!`,
+};
+
+
+res.status(200).json(response);
 });
 
 

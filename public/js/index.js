@@ -14,14 +14,19 @@ $(document).ready(function(){
     event.preventDefault();
     
     // blocked by CORS policy
-    // const getTerms = async () => {
-    //   const result = await fetch('http://localhost:3001/random', {
-    //     method: 'GET',
-    //   });
-    //   const json = await result.json();
-    //   return json;
-    // };
-    // getTerms().then((response) => response.forEach((item) => console.log(item))); 
+    const getTerms = async () => {
+      const result = await fetch('http://localhost:3001/Random', {
+        mode: 'no-cors',
+        method: 'GET',
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        }
+      });
+      const json = await result.json();
+  
+      return json;
+    };
+  getTerms().then((response) => console.log(response));
     
     
     let randomBWordsArraySelected = randomBWordselected();
