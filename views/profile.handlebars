@@ -1,8 +1,8 @@
 <div class="row justify-content-center"> 
-<div class="w-50 input-group">
-  <input type="search" class="form-control rounded" placeholder="Search here for a book." aria-label="Search." aria-describedby="search-addon" />
-  <button type="submit" class="btn btn-primary submit px-3">Search</button>
-</div>
+  <div class="w-50 input-group">
+    <input type="search" class="form-control rounded font-weight-bold" placeholder="Search here for a book." aria-label="Search." aria-describedby="search-addon" />
+    <button type="submit" class="btn btn-primary submit px-3">Search</button>
+  </div>
 </div> 
 
 <div class="container">
@@ -11,43 +11,80 @@
     <div class="card">
       <img class="card-img-top" src="#" alt="Card image cap">
       <div class="card-body text-center">
-        <h5 class="card-title book-title smTitle">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
+        <h5 class="card-title">Book Title</h5>
+        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="#" alt="Card image cap">
       <div class="card-body text-center">
         <h5 class="card-title">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
+        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="#" alt="Card image cap">
       <div class="card-body text-center">
         <h5 class="card-title">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
+        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
       </div>
     </div>
         <div class="card">
       <img class="card-img-top" src="#" alt="Card image cap">
       <div class="card-body text-center">
-        <h5 class="card-title book-title smTitle">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
+        <h5 class="card-title">Book Title</h5>
+        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
       </div>
     </div>
-    <div class="card">
-      <img class="card-img-top" src="#" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="#" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">Book Title</h5>
-        <a href="#" target="_blank" class="btn btn-primary buy">BUY</a>
-      </div>
   </div>
 </div>
+
+<div class="container py-5">
+  <h2 class="card-heading text-white">Find Your Local Brewery</h2>
+  <div class="input-group">
+    <form class="card" data-abide novalidate>
+      <div class="card-body">
+          <!-- grab user location-->
+          <label class="text-dark font-weight-bold">Location:
+            <input type="text" id="cityInput" placeholder="Enter the address."
+              aria-describedby="exampleHelpTextPassword" required>
+          </label>
+        <div>
+          <!--grab radius of search-->
+          <label class="text-dark font-weight-bold">How close?
+            <select id="select" required>
+              <option value=""></option>
+              <option value="1609">1 miles</option>
+              <option value="8047">5 miles</option>
+              <option value="16093">10 miles</option>
+              <option value="24140">15 miles</option>
+              <option value="32186">20 miles</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <!-- grab criteria for pet activity-->
+          <p class="text-dark font-weight-bold">What are you looking for?</p>
+          <label>
+            <fieldset class="text-dark">
+              <input class="check" id="checkbox1" type="checkbox"><label class="px-2" for="checkbox1"> <i
+                  class="fa-solid fa-dog fa-bounce"></i>Breweries</label>
+              <input class="check" id="checkbox2" type="checkbox" required><label class="px-2" for="checkbox2"> <i
+                  class="fa-solid fa-bone-break"></i>Beer</label>
+              <input class="check" id="checkbox3" type="checkbox"><label class="px-2" for="checkbox3"> <i
+                  class="fa-solid fa-bowl-food"></i>Cider</label>
+              <input class="check" id="checkbox3" type="checkbox"><label class="px-2" for="checkbox4"> <i
+                  class="fa-solid fa-bowl-food"></i>Wine</label>
+          </label>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <button class="form-control btn btn-primary submit px-3" type="button" id="cityInputSubmit" value="Submit">Submit</button>
+        </div>
+      </div>
+    </form>
+    <div id="map"></div>
+  </div>
+</div>
+ 
+ <script src="js/index.js"></script>
