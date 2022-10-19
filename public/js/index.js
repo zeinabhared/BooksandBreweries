@@ -1,7 +1,7 @@
 var cityinput = document.getElementById("cityInput");
 var citysubmit = document.getElementById("cityInputSubmit");
-var bookinput = document.getElementById("bookInput");
-var booksubmit = document.getElementById("bookInputSubmit");
+var bookinput = document.getElementById("book-search");
+var booksubmit = document.querySelector(".submit");
 var logo_name = document.getElementById("logo_name");
 const nameInput = document.getElementById('name-signup');
 const emailInput = document.getElementById('email-signup');
@@ -150,7 +150,7 @@ function mapResults(address, searchTerm, selectedRadius) {
   });
 }
 
-if (document.getElementById("bookInputSubmit")) {
+ 
   document.getElementById("bookInputSubmit").addEventListener("click", function (event) {
     event.preventDefault();
     const Booklist = document.getElementById("content");
@@ -158,7 +158,6 @@ if (document.getElementById("bookInputSubmit")) {
     bookapi();
     //getTerms().then((response) => response.forEach((item) => console.log(item)));
   });
-};
 
 function bookapi() {
   let bookInfo = bookinput.value || bookinput.placeholder;
