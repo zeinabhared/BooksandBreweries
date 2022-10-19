@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -8,8 +8,10 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
+      console.log('can you see this session?')
+      
       res.status(200).json(userData);
+     // res.redirect('/profile')
     });
   } catch (err) {
     res.status(400).json(err);
@@ -17,7 +19,9 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log('working')
   try {
+    console.log(req.body.email, req.body.password)
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -35,12 +39,14 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
+    console.log('can you see this?')
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+    
       res.json({ user: userData, message: 'You are now logged in!' });
+      // res.redirect('/profile')
     });
 
   } catch (err) {
@@ -62,7 +68,7 @@ router.post('/new', async (req, res) => {
   console.log('Direct hit!')
   console.log(req.body);
 
-  const { username: name, email, password } = req.body;
+  const { name: name, email, password } = req.body;
   // If all the required properties are present
   if (name && email && password) {
     // Variable for the object we will save
@@ -92,7 +98,6 @@ router.post('/new', async (req, res) => {
     //res.status(500).json('Error in posting review');
   }
 });
-
 
 module.exports = router;
 

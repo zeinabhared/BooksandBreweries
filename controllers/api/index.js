@@ -5,9 +5,9 @@ const userRoutes = require('./user-routes');
 const randomRoutes = require('./random-routes');
 
 
-router.use('/Books', bookRoutes);
-router.use('/Places', placesRoutes);
-router.use('/User', userRoutes);
-router.use('/Random', randomRoutes);
+router.use('/books', bookRoutes);
+router.use('/places', placesRoutes);
+router.use('/user', userRoutes);
+router.use('/random', randomRoutes);
 
 module.exports = router;

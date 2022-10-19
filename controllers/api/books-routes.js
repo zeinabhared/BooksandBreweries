@@ -4,20 +4,20 @@ const {Book} = require('../../models');
 
 router.get('/api/:bookinput', (req, res) => {
   let bookInfo = req.params.bookinput.toLowerCase();
-//   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
-//   var bookData = fetch(api)
-//   .then((response) => {
-//       console.log(response)
-//       if (response.status === 200) {
-//       }
-//       return response.json();
-//   })
-//     .then(function (data) {
-//       console.log(data);
-//       handleResponse(data);
-//         return data;
-//     }) 
-//     res.send(`${bookData}`);
+  const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
+  var bookData = fetch(api)
+  .then((response) => {
+      console.log(response)
+      if (response.status === 200) {
+      }
+      return response.json();
+  })
+    .then(function (data) {
+      console.log(data);
+      handleResponse(data);
+        return data;
+    }) 
+    res.render(`${bookData}`);
 
 res.json(`Test is working ${bookInfo}!`);
 });
