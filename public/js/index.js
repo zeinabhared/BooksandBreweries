@@ -3,20 +3,17 @@ var citysubmit = document.getElementById("cityInputSubmit");
 var bookinput = document.getElementById("bookInput");
 var booksubmit = document.querySelector(".submit");
 var logo_name = document.getElementById("logo_name");
-// const nameInput = document.getElementById('name-signup');
-// const emailInput = document.getElementById('email-signup');
-// const passwordInput = document.getElementById('password-signup');
-// const signupsubmit = document.querySelector('.signin-form');
 
-// //function to make sure only one checkbox can be selected at a time
-// $(document).ready(function () {
-//   $('.check').click(function () {
-//     $('.check').not(this).prop('checked', false);
-//   });
-// });
+function selectOnlyThis(id) {
+    for (var i = 1;i <= 4; i++)
+    {
+        document.getElementById(`checkbox${i}`).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
 document.getElementById("logo_name").addEventListener("click", function (event) {
   event.preventDefault();
-
   const getTerms = async () => {
     const count = 2;
     const result = await fetch(`http://localhost:3001/api/random/${count}`, {
@@ -33,20 +30,25 @@ if (document.getElementById("cityInputSubmit")) {
     event.preventDefault();
     let searchTerm = '';
     //checking to see what the user checked for pet preference
-    if (document.getElementById("checkbox1").getAttribute('checked')) {
+    if ($('#checkbox1').prop('checked')) {
       searchTerm = 'Breweries';
     }
-    if (document.getElementById("checkbox2").getAttribute('checked')) {
+    if ($('#checkbox2').prop('checked')) {
       searchTerm = 'Beer';
     }
-    if (document.getElementById("checkbox3").getAttribute('checked')) {
+    if ($('#checkbox3').prop('checked')) {
       searchTerm = 'Cider';
     }
-    if (document.getElementById("checkbox4").getAttribute('checked')) {
+    if ($('#checkbox4').prop('checked')) {
       searchTerm = 'Wine';
     }
     let selectedRadius = 16093; // document.getElementById('select').value;
     let address = cityinput.value || cityinput.placeholder;
+    console.log((cityinput.value));
+    console.log((cityinput.placeholder));
+    console.log((searchTerm));
+    console.log((address, searchTerm, selectedRadius));
+
     mapResults(address, searchTerm, selectedRadius);
   });
 };
@@ -116,11 +118,10 @@ if (document.getElementById("bookInputSubmit")) {
     const Booklist = document.getElementById("content");
     removeAllChildNodes(Booklist);
     bookapi();
-    //getTerms().then((response) => response.forEach((item) => console.log(item)));
   });
 }
 function bookapi() {
-  let bookInfo = bookinput.value || bookinput.placeholder;
+  let bookInfo = bookinput.value || `Ada Lovelace`;
   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
   var bookData = fetch(api)
     .then((response) => {
@@ -136,14 +137,6 @@ function bookapi() {
   return bookData;
 };
 
-const getTerms = async () => {
-  const result = await fetch('http://localhost:3001/books/api/test', {
-    method: 'GET',
-  });
-  const json = await result.json();
-  return json;
-}
-
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -154,15 +147,20 @@ function handleResponse(response) {
   for (var i = 0; i < response.items.length; i++) {
     var item = response.items[i];
     // in production code, item.text should have the HTML entities escaped.
-    document.getElementById("content").innerHTML += 
-    `
+    document.getElementById("content").innerHTML +=
+      `
     <div class="card">
     <img class="card-img-top" src="${item.volumeInfo.imageLinks.thumbnail}" alt="Card image cap">
     <div class="card-body text-center">
       <h5 class="card-title">${item.volumeInfo.title}</h5>
       <a href="${item.volumeInfo.previewLink}" target="_blank" class="btn btn-primary">BUY</a>
+      <h5>Bookmark</h5><span class="material-symbols-outlined" id="booksave${i}">bookmark</span>
     </div>
   </div>
   `
-  } 
+    document.querySelector(`#booksave${i}`).addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log(response.items[i].volumeInfo.imageLinks.thumbnail);
+    });
+  }
 }

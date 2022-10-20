@@ -1,11 +1,12 @@
-<div class="row justify-content-center"> 
+<div class="row justify-content-center">
   <div class="w-50 input-group">
 
-    <input type="search" class="form-control rounded font-weight-bold" placeholder="Search here for a book." aria-label="Search." aria-describedby="search-addon" id="bookInput"/>
+    <input type="search" class="form-control rounded font-weight-bold" placeholder="Search here for a book."
+      aria-label="Search." aria-describedby="search-addon" id="bookInput" />
     <button type="submit" class="btn btn-primary submit px-3" id="bookInputSubmit">Search</button>
 
   </div>
-</div> 
+</div>
 
 <!--Place where book content goes -->
 <div class="container py-4">
@@ -67,7 +68,6 @@
 
     </div>
   </div>
-</div>
 
 <div class="container py-5">
   <h2 class="card-heading text-white">Find Your Local Spot</h2>
@@ -77,49 +77,52 @@
 
           <!-- grab user location-->
           <label class="text-dark font-weight-bold">Location:
-            <input type="text" id="cityInput" placeholder="Enter the address."
-              aria-describedby="exampleHelpTextPassword" required style="width: 30rem" >
+            <input type="text" id="cityInput" placeholder="5010 14th Ave NW, Seattle, WA 98107"
+              aria-describedby="exampleHelpTextPassword" required style="width: 30rem">
           </label>
-        <div>
+          <div>
 
-          <!--grab radius of search-->
-          <label class="text-dark font-weight-bold">How close?
-            <select id="select" required>
-              <option value=""></option>
-              <option value="1609">1 miles</option>
-              <option value="8047">5 miles</option>
-              <option value="16093">10 miles</option>
-              <option value="24140">15 miles</option>
-              <option value="32186">20 miles</option>
-            </select>
-          </label>
-        </div>
-        <div>
+            <!--grab radius of search-->
+            <label class="text-dark font-weight-bold">How close?
+              <select id="select" required>
+                <option value=""></option>
+                <option value="1609">1 miles</option>
+                <option value="8047">5 miles</option>
+                <option value="16093">10 miles</option>
+                <option value="24140">15 miles</option>
+                <option value="32186">20 miles</option>
+              </select>
+            </label>
+          </div>
+          <div>
 
-          <!-- grab criteria -->
-          <p class="text-dark font-weight-bold">What are you looking for?</p>
-          <label>
-            <fieldset class="text-dark">
-              <input class="check" id="checkbox1" type="checkbox">
+            <!-- grab criteria -->
+            <p class="text-dark font-weight-bold">What are you looking for?</p>
+            <label>
+              <fieldset class="text-dark">
+                <input class="check" id="checkbox1" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox1"><span class="material-symbols-outlined">local_drink</span> Breweries</label>
-              <input class="check" id="checkbox2" type="checkbox" required>
+                <input class="check" id="checkbox2" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox2"><span class="material-symbols-outlined">sports_bar</span> Beer</label>
-              <input class="check" id="checkbox3" type="checkbox">
+                <input class="check" id="checkbox3" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox3"><span class="material-symbols-outlined">liquor</span> Cider</label>
-              <input class="check" id="checkbox4" type="checkbox">
+                <input class="check" id="checkbox4" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox4"><span class="material-symbols-outlined">wine_bar</span> Wine</label>
-          </label>
+            </label>
             </fieldset>
+          </div>
+          <div class="form-group">
+            <button class="form-control btn btn-primary submit px-3" style="width: 7rem" type="button"
+              id="cityInputSubmit" value="Submit">Submit</button>
+          </div>
         </div>
-        <div class="form-group">
-            <button class="form-control btn btn-primary submit px-3" style="width: 7rem" type="button" id="cityInputSubmit" value="Submit">Submit</button>
-        </div>
-      </div>
-    </form>
+      </form>
 
-     <!--Place where map goes -->
-    <div id="map"></div>
+      <!--Place where map goes -->
+      <div id="map"></div>
 
+    </div>
   </div>
 </div>
  
+
