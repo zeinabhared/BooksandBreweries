@@ -81,7 +81,6 @@ if (document.getElementById("cityInputSubmit")) {
     }
     let selectedRadius = $("select").val();
     let address = cityinput.value || cityinput.placeholder;
-    console.log(address);
     mapResults(address, searchTerm, selectedRadius);
   });
 };
@@ -113,11 +112,6 @@ function mapResults(address, searchTerm, selectedRadius) {
 
     function initMap(latlng, searchTerm, selectedRadius) {
       let geoLocation = new google.maps.LatLng(latlng.lat, latlng.lng);
-      console.log(latlng.lat, latlng.lng);
-      console.log(geoLocation);
-      console.log(searchTerm);
-      console.log(selectedRadius);
-      console.log(document.getElementById('map'));
       infowindow = new google.maps.InfoWindow();
       map = new google.maps.Map(
         document.getElementById('map'), { center: geoLocation, zoom: 13 });
@@ -164,13 +158,11 @@ function bookapi() {
   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
   var bookData = fetch(api)
     .then((response) => {
-      console.log(response)
       if (response.status === 200) {
       }
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       handleResponse(data);
       return data;
     })

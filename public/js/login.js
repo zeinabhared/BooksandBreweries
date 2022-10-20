@@ -1,8 +1,5 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  // console.log('hello')
-  // console.log(document.getElementById('email-login').value)
-  // console.log(document.getElementById('password-login'))
 
   // Collect values from the login form
   const email = document.getElementById('email-login').value.trim();

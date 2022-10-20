@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      console.log('can you see this session?')
       
       res.status(200).json(userData);
      // res.redirect('/profile')
@@ -20,7 +19,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    console.log(req.body.email, req.body.password)
+
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -38,7 +37,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-    console.log('can you see this?')
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -63,8 +61,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/new', async (req, res) => {
-  console.log('Direct hit!')
-  console.log(req.body);
 
   const { name: name, email, password } = req.body;
   // If all the required properties are present
@@ -76,7 +72,7 @@ router.post('/new', async (req, res) => {
       password,
       //user_id: 1, //need to get from SQL database
     };
-    console.log(newUser);   
+  
     User.create(newUser)
     .then((newUser) => {
       res.json(newUser);
@@ -90,7 +86,6 @@ router.post('/new', async (req, res) => {
       body: newUser,
     };
 
-    console.log(response);
     //res.status(201).json(response);
   } else {
     //res.status(500).json('Error in posting review');

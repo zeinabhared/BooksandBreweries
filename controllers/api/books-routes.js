@@ -7,13 +7,11 @@ router.get('/api/:bookinput', (req, res) => {
   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
   var bookData = fetch(api)
   .then((response) => {
-      console.log(response)
       if (response.status === 200) {
       }
       return response.json();
   })
     .then(function (data) {
-      console.log(data);
       handleResponse(data);
         return data;
     }) 
