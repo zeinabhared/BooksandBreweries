@@ -1,4 +1,9 @@
- #map {
+body {
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+#map {
   height: 400px;
   /* The height is 400 pixels */
   width: 92%;
@@ -11,4 +16,8 @@
   'wght' 400,
   'GRAD' 0,
   'opsz' 48
+}
+
+.card-columns {
+  column-count: 6;
 }
