@@ -1,111 +1,113 @@
-<div class="row justify-content-center"> 
+<div class="row justify-content-center">
   <div class="w-50 input-group">
 
-    <input type="search" class="form-control rounded font-weight-bold" placeholder="Search here for a book." aria-label="Search." aria-describedby="search-addon" id="bookInput"/>
+    <input type="search" class="form-control rounded font-weight-bold" placeholder="Search here for a book."
+      aria-label="Search." aria-describedby="search-addon" id="bookInput" />
     <button type="submit" class="btn btn-primary submit px-3" id="bookInputSubmit">Search</button>
 
   </div>
-</div> 
+</div>
 
 <!--Place where book content goes -->
 <h1 class="card-heading text-white">Recommended Books</h1>
-<div class="container">
-  <div class="card-deck" id="content" >
+<div class="container row-cols-4">
+  <div class="card-deck" id="content">
 
 
   </div>
 </div>
 <div class="container">
 
-<div id="content"></div>
+  <div class="container">
+    <h1 class="card-heading text-white">Recommended Books</h1>
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="./assets/images/4.png" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title">On the Roof Top</h5>
+          <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+        </div>
+      </div>
 
-<div class="container">
-  <h1 class="card-heading text-white">Recommended Books</h1>
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="./assets/images/4.png" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">On the Roof Top</h5>
-        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images/3.png" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title">Our Missing Hearts</h5>
+          <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+        </div>
       </div>
-    </div>
-
-    <div class="card">
-      <img class="card-img-top" src="./assets/images/3.png" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">Our Missing Hearts</h5>
-        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images/1.jpg" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title">Wrong Place Wrong Time </h5>
+          <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="./assets/images/1.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">Wrong Place Wrong Time </h5>
-        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
-      </div>
-    </div>
-        <div class="card">
-      <img class="card-img-top" src="./assets/images/2.jpg" alt="Card image cap">
-      <div class="card-body text-center">
-        <h5 class="card-title">Honey and Spice</h5>
-        <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+      <div class="card">
+        <img class="card-img-top" src="./assets/images/2.jpg" alt="Card image cap">
+        <div class="card-body text-center">
+          <h5 class="card-title">Honey and Spice</h5>
+          <a href="#" target="_blank" class="btn btn-primary">BUY</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container py-5">
-  <h2 class="card-heading text-white">Find Your Local Brewery</h2>
-  <div class="input-group">
-    <form class="card" style="width: 40rem" data-abide novalidate>
-      <div class="card-body">
+  <div class="container py-5">
+    <h2 class="card-heading text-white">Find Your Local Brewery</h2>
+    <div class="input-group">
+      <form class="card" style="width: 40rem" data-abide novalidate>
+        <div class="card-body">
 
           <!-- grab user location-->
           <label class="text-dark font-weight-bold">Location:
             <input type="text" id="cityInput" placeholder="Enter the address."
-              aria-describedby="exampleHelpTextPassword" required style="width: 30rem" >
+              aria-describedby="exampleHelpTextPassword" required style="width: 30rem">
           </label>
-        <div>
+          <div>
 
-          <!--grab radius of search-->
-          <label class="text-dark font-weight-bold">How close?
-            <select id="select" required>
-              <option value=""></option>
-              <option value="1609">1 miles</option>
-              <option value="8047">5 miles</option>
-              <option value="16093">10 miles</option>
-              <option value="24140">15 miles</option>
-              <option value="32186">20 miles</option>
-            </select>
-          </label>
-        </div>
-        <div>
+            <!--grab radius of search-->
+            <label class="text-dark font-weight-bold">How close?
+              <select id="select" required>
+                <option value=""></option>
+                <option value="1609">1 miles</option>
+                <option value="8047">5 miles</option>
+                <option value="16093">10 miles</option>
+                <option value="24140">15 miles</option>
+                <option value="32186">20 miles</option>
+              </select>
+            </label>
+          </div>
+          <div>
 
-          <!-- grab criteria -->
-          <p class="text-dark font-weight-bold">What are you looking for?</p>
-          <label>
-            <fieldset class="text-dark">
-              <input class="check" id="checkbox1" type="checkbox">
-                <label class="px-2" for="checkbox1"><span class="material-symbols-outlined">local_drink</span> Breweries</label>
-              <input class="check" id="checkbox2" type="checkbox" required>
-                <label class="px-2" for="checkbox2"><span class="material-symbols-outlined">sports_bar</span> Beer</label>
-              <input class="check" id="checkbox3" type="checkbox">
+            <!-- grab criteria -->
+            <p class="text-dark font-weight-bold">What are you looking for?</p>
+            <label>
+              <fieldset class="text-dark">
+                <input class="check" id="checkbox1" type="checkbox">
+                <label class="px-2" for="checkbox1"><span class="material-symbols-outlined">local_drink</span>
+                  Breweries</label>
+                <input class="check" id="checkbox2" type="checkbox" required>
+                <label class="px-2" for="checkbox2"><span class="material-symbols-outlined">sports_bar</span>
+                  Beer</label>
+                <input class="check" id="checkbox3" type="checkbox">
                 <label class="px-2" for="checkbox3"><span class="material-symbols-outlined">liquor</span> Cider</label>
-              <input class="check" id="checkbox4" type="checkbox">
+                <input class="check" id="checkbox4" type="checkbox">
                 <label class="px-2" for="checkbox4"><span class="material-symbols-outlined">wine_bar</span> Wine</label>
-          </label>
+            </label>
             </fieldset>
+          </div>
+          <div class="form-group">
+            <button class="form-control btn btn-primary submit px-3" style="width: 7rem" type="button"
+              id="cityInputSubmit" value="Submit">Submit</button>
+          </div>
         </div>
-        <div class="form-group">
-            <button class="form-control btn btn-primary submit px-3" style="width: 7rem" type="button" id="cityInputSubmit" value="Submit">Submit</button>
-        </div>
-      </div>
-    </form>
+      </form>
 
-     <!--Place where map goes -->
-    <div id="map"></div>
+      <!--Place where map goes -->
+      <div id="map"></div>
 
+    </div>
   </div>
-</div>
- 
-<script src="js/index.js"></script>
+
+  <script src="js/index.js"></script>

@@ -154,15 +154,20 @@ function handleResponse(response) {
   for (var i = 0; i < response.items.length; i++) {
     var item = response.items[i];
     // in production code, item.text should have the HTML entities escaped.
-    document.getElementById("content").innerHTML += 
-    `
+    document.getElementById("content").innerHTML +=
+      `
     <div class="card">
     <img class="card-img-top" src="${item.volumeInfo.imageLinks.thumbnail}" alt="Card image cap">
     <div class="card-body text-center">
       <h5 class="card-title">${item.volumeInfo.title}</h5>
       <a href="${item.volumeInfo.previewLink}" target="_blank" class="btn btn-primary">BUY</a>
+      <h5>Bookmark</h5><span class="material-symbols-outlined" id="booksave${i}">bookmark</span>
     </div>
   </div>
   `
-  } 
+    document.querySelector(`#booksave${i}`).addEventListener("click", function (event) {
+      event.preventDefault();
+      console.log(response.items[i].volumeInfo.imageLinks.thumbnail);
+    });
+  }
 }
