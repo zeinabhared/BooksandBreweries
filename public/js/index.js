@@ -1,12 +1,12 @@
 var cityinput = document.getElementById("cityInput");
 var citysubmit = document.getElementById("cityInputSubmit");
-var bookinput = document.getElementById("book-search");
+var bookinput = document.getElementById("bookInput");
 var booksubmit = document.querySelector(".submit");
 var logo_name = document.getElementById("logo_name");
-const nameInput = document.getElementById('name-signup');
-const emailInput = document.getElementById('email-signup');
-const passwordInput = document.getElementById('password-signup');
-const signupsubmit = document.querySelector('.signin-form');
+// const nameInput = document.getElementById('name-signup');
+// const emailInput = document.getElementById('email-signup');
+// const passwordInput = document.getElementById('password-signup');
+// const signupsubmit = document.querySelector('.signin-form');
 
 // //function to make sure only one checkbox can be selected at a time
 // $(document).ready(function () {
@@ -129,6 +129,7 @@ function bookapi() {
       return response.json();
     })
     .then(function (data) {
+      console.log(data);
       handleResponse(data);
       return data;
     })
@@ -153,6 +154,15 @@ function handleResponse(response) {
   for (var i = 0; i < response.items.length; i++) {
     var item = response.items[i];
     // in production code, item.text should have the HTML entities escaped.
-    document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title;
-  }
+    document.getElementById("content").innerHTML += 
+    `
+    <div class="card">
+    <img class="card-img-top" src="${item.volumeInfo.imageLinks.thumbnail}" alt="Card image cap">
+    <div class="card-body text-center">
+      <h5 class="card-title">${item.volumeInfo.title}</h5>
+      <a href="${item.volumeInfo.previewLink}" target="_blank" class="btn btn-primary">BUY</a>
+    </div>
+  </div>
+  `
+  } 
 }
