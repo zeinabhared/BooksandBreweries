@@ -20,7 +20,7 @@ const signupsubmit = document.querySelector('.signin-form');
 //       password: passwordInput.value.trim(),
 //     };
 //     console.log(newUser);
-    // Helper function that accepts a `user` object, sends a POST request and returns the result
+// Helper function that accepts a `user` object, sends a POST request and returns the result
 //     const postUser = async (newUser) => {
 //       // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
 //       const result = await fetch('http://localhost:3001/api/user/new', {
@@ -51,7 +51,7 @@ $(document).ready(function () {
     $('.check').not(this).prop('checked', false);
   });
 });
-document.getElementById("logo_name").addEventListener("click", function(event) {
+document.getElementById("logo_name").addEventListener("click", function (event) {
   event.preventDefault();
 
   const getTerms = async () => {
@@ -150,7 +150,7 @@ function mapResults(address, searchTerm, selectedRadius) {
   });
 }
 
- 
+if (document.getElementById("bookInputSubmit")) {
   document.getElementById("bookInputSubmit").addEventListener("click", function (event) {
     event.preventDefault();
     const Booklist = document.getElementById("content");
@@ -158,7 +158,7 @@ function mapResults(address, searchTerm, selectedRadius) {
     bookapi();
     //getTerms().then((response) => response.forEach((item) => console.log(item)));
   });
-
+}
 function bookapi() {
   let bookInfo = bookinput.value || bookinput.placeholder;
   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
