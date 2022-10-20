@@ -61,7 +61,7 @@
 
           <!-- grab user location-->
           <label class="text-dark font-weight-bold">Location:
-            <input type="text" id="cityInput" placeholder="Enter the address."
+            <input type="text" id="cityInput" placeholder="5010 14th Ave NW, Seattle, WA 98107"
               aria-describedby="exampleHelpTextPassword" required style="width: 30rem">
           </label>
           <div>
@@ -84,15 +84,13 @@
             <p class="text-dark font-weight-bold">What are you looking for?</p>
             <label>
               <fieldset class="text-dark">
-                <input class="check" id="checkbox1" type="checkbox">
-                <label class="px-2" for="checkbox1"><span class="material-symbols-outlined">local_drink</span>
-                  Breweries</label>
-                <input class="check" id="checkbox2" type="checkbox" required>
-                <label class="px-2" for="checkbox2"><span class="material-symbols-outlined">sports_bar</span>
-                  Beer</label>
-                <input class="check" id="checkbox3" type="checkbox">
+                <input class="check" id="checkbox1" type="checkbox" onclick="selectOnlyThis(this.id)">
+                <label class="px-2" for="checkbox1"><span class="material-symbols-outlined">local_drink</span> Breweries</label>
+                <input class="check" id="checkbox2" type="checkbox" onclick="selectOnlyThis(this.id)">
+                <label class="px-2" for="checkbox2"><span class="material-symbols-outlined">sports_bar</span> Beer</label>
+                <input class="check" id="checkbox3" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox3"><span class="material-symbols-outlined">liquor</span> Cider</label>
-                <input class="check" id="checkbox4" type="checkbox">
+                <input class="check" id="checkbox4" type="checkbox" onclick="selectOnlyThis(this.id)">
                 <label class="px-2" for="checkbox4"><span class="material-symbols-outlined">wine_bar</span> Wine</label>
             </label>
             </fieldset>
