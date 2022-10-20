@@ -8,49 +8,49 @@ const emailInput = document.getElementById('email-signup');
 const passwordInput = document.getElementById('password-signup');
 const signupsubmit = document.querySelector('.signin-form');
 
-// if (document.querySelector(".signin-form")) {
-//   // Listen for when the form is submitted
-//   document.querySelector(".signin-form").addEventListener("click", function(event) {
-//     event.preventDefault();
+if (document.querySelector(".signin-form")) {
+  // Listen for when the form is submitted
+  document.querySelector(".signin-form").addEventListener("click", function(event) {
+    event.preventDefault();
 
-//     // Create a new user object from the input values
-//     const newUser = {
-//       name: nameInput.value.trim(),
-//       email: emailInput.value.trim(),
-//       password: passwordInput.value.trim(),
-//     };
-//     console.log(newUser);
-// Helper function that accepts a `user` object, sends a POST request and returns the result
-//     const postUser = async (newUser) => {
-//       // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
-//       const result = await fetch('http://localhost:3001/api/user/new', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(newUser),
-//       })
-//       const json = await result.json().then((data) => {
-//         console.log('Successful POST request:', data);
-//         return data;
-//       })
-//         .catch((error) => {
-//           console.error('Error in POST request:', error);
-//         });
-//     }
-//     // Call our postUser method to make a POST request with our `newUser` object.
-//     postUser(newUser)
-//     //.then((data) => console.log(data.body.user_id))
-//     //.catch((err) => console.error(err));
-//   });
-// };
-
-//function to make sure only one checkbox can be selected at a time
-$(document).ready(function () {
-  $('.check').click(function () {
-    $('.check').not(this).prop('checked', false);
+    // Create a new user object from the input values
+    const newUser = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      password: passwordInput.value.trim(),
+    };
+    console.log(newUser);
+Helper function that accepts a `user` object, sends a POST request and returns the result
+    const postUser = async (newUser) => {
+      // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
+      const result = await fetch('http://localhost:3001/api/user/new', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUser),
+      })
+      const json = await result.json().then((data) => {
+        console.log('Successful POST request:', data);
+        return data;
+      })
+        .catch((error) => {
+          console.error('Error in POST request:', error);
+        });
+    }
+    // Call our postUser method to make a POST request with our `newUser` object.
+    postUser(newUser)
+    //.then((data) => console.log(data.body.user_id))
+    //.catch((err) => console.error(err));
   });
-});
+};
+
+// //function to make sure only one checkbox can be selected at a time
+// $(document).ready(function () {
+//   $('.check').click(function () {
+//     $('.check').not(this).prop('checked', false);
+//   });
+// });
 document.getElementById("logo_name").addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -70,16 +70,19 @@ if (document.getElementById("cityInputSubmit")) {
     event.preventDefault();
     let searchTerm = '';
     //checking to see what the user checked for pet preference
-    if ($('#checkbox1').prop('checked')) {
+    if (document.getElementById("checkbox1").getAttribute('checked')) {
       searchTerm = 'Breweries';
     }
-    if ($('#checkbox2').prop('checked')) {
+    if (document.getElementById("checkbox2").getAttribute('checked')) {
       searchTerm = 'Beer';
     }
-    if ($('#checkbox3').prop('checked')) {
-      searchTerm = 'Cidar';
+    if (document.getElementById("checkbox3").getAttribute('checked')) {
+      searchTerm = 'Cider';
     }
-    let selectedRadius = $("select").val();
+    if (document.getElementById("checkbox4").getAttribute('checked')) {
+      searchTerm = 'Wine';
+    }
+    let selectedRadius = 16093; // document.getElementById('select').value;
     let address = cityinput.value || cityinput.placeholder;
     mapResults(address, searchTerm, selectedRadius);
   });
