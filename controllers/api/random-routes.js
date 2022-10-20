@@ -4,6 +4,7 @@ const Random = require('../../models/Random');
 // const apiKey = process.env.api;
 // The `/api/categories` endpoint
 
+//random B word js code
 router.get('/:count', async (req, res) => {
     const count = req.params.count.toLowerCase();
     const randomData = await Random.findAll().catch((err) => {
