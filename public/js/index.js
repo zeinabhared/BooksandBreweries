@@ -3,10 +3,6 @@ var citysubmit = document.getElementById("cityInputSubmit");
 var bookinput = document.getElementById("bookInput");
 var booksubmit = document.querySelector(".submit");
 var logo_name = document.getElementById("logo_name");
-// const nameInput = document.getElementById('name-signup');
-// const emailInput = document.getElementById('email-signup');
-// const passwordInput = document.getElementById('password-signup');
-// const signupsubmit = document.querySelector('.signin-form');
 
 function selectOnlyThis(id) {
     for (var i = 1;i <= 4; i++)
@@ -18,7 +14,6 @@ function selectOnlyThis(id) {
 
 document.getElementById("logo_name").addEventListener("click", function (event) {
   event.preventDefault();
-
   const getTerms = async () => {
     const count = 2;
     const result = await fetch(`http://localhost:3001/api/random/${count}`, {
@@ -123,11 +118,10 @@ if (document.getElementById("bookInputSubmit")) {
     const Booklist = document.getElementById("content");
     removeAllChildNodes(Booklist);
     bookapi();
-    //getTerms().then((response) => response.forEach((item) => console.log(item)));
   });
 }
 function bookapi() {
-  let bookInfo = bookinput.value || bookinput.placeholder;
+  let bookInfo = bookinput.value || `Ada Lovelace`;
   const api = `https://www.googleapis.com/books/v1/volumes?q=${bookInfo}`
   var bookData = fetch(api)
     .then((response) => {
@@ -142,14 +136,6 @@ function bookapi() {
     })
   return bookData;
 };
-
-const getTerms = async () => {
-  const result = await fetch('http://localhost:3001/books/api/test', {
-    method: 'GET',
-  });
-  const json = await result.json();
-  return json;
-}
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
