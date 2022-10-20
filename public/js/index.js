@@ -8,43 +8,6 @@ const emailInput = document.getElementById('email-signup');
 const passwordInput = document.getElementById('password-signup');
 const signupsubmit = document.querySelector('.signin-form');
 
-if (document.querySelector(".signin-form")) {
-  // Listen for when the form is submitted
-  document.querySelector(".signin-form").addEventListener("click", function(event) {
-    event.preventDefault();
-
-    // Create a new user object from the input values
-    const newUser = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      password: passwordInput.value.trim(),
-    };
-    console.log(newUser);
-Helper function that accepts a `user` object, sends a POST request and returns the result
-    const postUser = async (newUser) => {
-      // Fetch accepts a URL and an options object where you can declare the HTTP method, the request body, and any headers.
-      const result = await fetch('http://localhost:3001/api/user/new', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newUser),
-      })
-      const json = await result.json().then((data) => {
-        console.log('Successful POST request:', data);
-        return data;
-      })
-        .catch((error) => {
-          console.error('Error in POST request:', error);
-        });
-    }
-    // Call our postUser method to make a POST request with our `newUser` object.
-    postUser(newUser)
-    //.then((data) => console.log(data.body.user_id))
-    //.catch((err) => console.error(err));
-  });
-};
-
 // //function to make sure only one checkbox can be selected at a time
 // $(document).ready(function () {
 //   $('.check').click(function () {
