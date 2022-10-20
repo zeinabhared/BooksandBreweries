@@ -11,7 +11,7 @@
   	<link rel="stylesheet" href="css/style.css">
 </head>
   
-<body class="img js-fullheight" style="background-image: url(assets/images/bookshelf.png);">
+<body class="d-flex flex-column min-vh-100 img js-fullheight" style="background-image: url(assets/images/bookshelf.png);">
 
 	<header>
       <nav class="navbar navbar-expand-lg navbar-dark text-light bg-transparent">
@@ -21,10 +21,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
- 		 <li class="nav-item active">
-          <a class="nav-link" href="/">Home</a>
-          </li>
-		   
+ 		
 		{{#if logged_in}}
           <li class="nav-item active">
           <a class="nav-link" href="/profile">Profile</a>
@@ -33,6 +30,9 @@
           <a class="nav-link" href="/logout" id="logout">Logout</a>
           </li>
 		{{else}}
+		  <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+          </li>
 		  <li class="nav-item active">
           <a class="nav-link" href="/login">Login</a>
           </li>
@@ -47,67 +47,31 @@
 	</header>
 
 	{{{ body }}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1H0tMJF0rY1i56Pq9L_9SVYccaU_mJOE&libraries=places"></script>
 
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/popper.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1H0tMJF0rY1i56Pq9L_9SVYccaU_mJOE&libraries=places"></script>
 
-  {{#if logged_in}}
-  <script src="js/logout.js"></script>
-  {{/if}}
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/index.js"></script>
+
+{{#if logged_in}}
+<script src="js/logout.js"></script>
+{{/if}}
 
 </body>
 
+<!-- Footer -->
+<footer class="mt-auto page-footer font-small white">
 
-<footer id="footer" class="footer-1">
-<div class="main-footer bg-secondary bg-gradient-light
-opacity-50 widgets-dark typo-light text-light">
-<div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget subscribe no-box">
+  <!-- Copyright -->
+  <div class="footer-copyright text-white text-center py-3">© 2022 Copyright: Books and Breweries All rights reserved.
+  </div>
+  <!-- Copyright -->
 
-</div>
-</div>
-
-  
-
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Follow up<span></span></h5>
-            <a href="#"> <i class="fa fa-facebook"> </i> </a>
-            <a href="#"> <i class="fa fa-twitter"> </i> </a>
-            <a href="#"> <i class="fa fa-youtube"> </i> </a>
-</div>
-</div>
-<br>
-  <br>
-
-
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Contact Us<span></span></h5>
-            <p> 698 Candlewood Lane, Cabot Cove, Maine.</p>
-</div>
-
-</div>
-</div>
-</div>
-  
-<div class="footer-copyright">
-<div class="container">
-<div class="row">
-<div class="col-md-12 text-center">
-<p>Copyright Books and Breweries © 2022. All rights reserved.</p>
-</div>
-</div>
-</div>
-</div>
 </footer>
-
+<!-- Footer -->
 
 </html>
