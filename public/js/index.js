@@ -4,9 +4,9 @@ var bookinput = document.getElementById("bookInput");
 //Allows you to only select one checkbox for beer, wine, etc.
 function selectOnlyThis(id) {
     for (var i = 1;i <= 4; i++)
-    {
-        document.getElementById(`checkbox${i}`).checked = false;
-    }
+  {
+    document.getElementById(`checkbox${i}`).checked = false;
+  }
     document.getElementById(id).checked = true;
 }
 
@@ -29,7 +29,7 @@ if (document.getElementById("cityInputSubmit")) {
   document.getElementById("cityInputSubmit").addEventListener("click", function (event) {
     event.preventDefault();
     let searchTerm = '';
-    //checking to see what the user checked for pet preference
+    //checking to see what the user checked 
     if ($('#checkbox1').prop('checked')) {
       searchTerm = 'Breweries';
     }
