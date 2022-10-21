@@ -1,9 +1,7 @@
 var cityinput = document.getElementById("cityInput");
-var citysubmit = document.getElementById("cityInputSubmit");
 var bookinput = document.getElementById("bookInput");
-var booksubmit = document.querySelector(".submit");
-var logo_name = document.getElementById("logo_name");
 
+//Allows you to only select one checkbox for beer, wine, etc.
 function selectOnlyThis(id) {
     for (var i = 1;i <= 4; i++)
     {
@@ -12,6 +10,7 @@ function selectOnlyThis(id) {
     document.getElementById(id).checked = true;
 }
 
+//replicates the npm random names because we are way more than books and breweries.
 document.getElementById("logo_name").addEventListener("click", function (event) {
   event.preventDefault();
   const getTerms = async () => {
@@ -25,6 +24,7 @@ document.getElementById("logo_name").addEventListener("click", function (event) 
   getTerms().then((response) => document.getElementById("logo_name").textContent = `${response[0].random_word} and ${response[1].random_word}`);
 });
 
+//Put the map of locations on the DOM
 if (document.getElementById("cityInputSubmit")) {
   document.getElementById("cityInputSubmit").addEventListener("click", function (event) {
     event.preventDefault();
@@ -42,76 +42,28 @@ if (document.getElementById("cityInputSubmit")) {
     if ($('#checkbox4').prop('checked')) {
       searchTerm = 'Wine';
     }
-    let selectedRadius = 16093; // document.getElementById('select').value;
+    // let selectedRadius = 16093; // document.getElementById('select').value;
     let address = cityinput.value || cityinput.placeholder;
-    console.log((cityinput.value));
-    console.log((cityinput.placeholder));
-    console.log((searchTerm));
-    console.log((address, searchTerm, selectedRadius));
 
-    mapResults(address, searchTerm, selectedRadius);
+    // mapResults(address, searchTerm, selectedRadius);
+    removeAllChildNodes(document.getElementById("mapmain"));
+
+    //AP
+    document.getElementById("mapmain").innerHTML +=
+    `
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC1H0tMJF0rY1i56Pq9L_9SVYccaU_mJOE&q=${searchTerm}+near me+${address}"
+  allowfullscreen>
+</iframe>
+`
   });
 };
 
-function geocoding(address) {
-  const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyC1H0tMJF0rY1i56Pq9L_9SVYccaU_mJOE`
-  var latlng = fetch(api)
-    .then((response) => {
-      if (response.status === 200) {
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      const resultObject = {
-        lat: data.results[0].geometry.location.lat,
-        lng: data.results[0].geometry.location.lng,
-      };
-      return resultObject;
-    })
-  return latlng;
-}
-
-function mapResults(address, searchTerm, selectedRadius) {
-  let latlng = geocoding(address);
-  latlng.then((latlng) => {
-    let map;
-    let service;
-    let infowindow;
-
-    function initMap(latlng, searchTerm, selectedRadius) {
-      let geoLocation = new google.maps.LatLng(latlng.lat, latlng.lng);
-      infowindow = new google.maps.InfoWindow();
-      map = new google.maps.Map(
-        document.getElementById('map'), { center: geoLocation, zoom: 13 });
-      let request = {
-        location: geoLocation,
-        radius: selectedRadius,
-        query: searchTerm,
-      };
-      service = new google.maps.places.PlacesService(map);
-      service.textSearch(request, callback);
-    }
-    //running google map api function
-    initMap(latlng, searchTerm, selectedRadius);
-    //function to check if marker has already been placed 
-    function callback(results, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          let place = results[i];
-          createMarker(results[i]);
-        }
-      }
-    }
-    //function to place markers on the map produced from google API
-    function createMarker(place) {
-      new google.maps.Marker({
-        position: place.geometry.location,
-        map: map
-      });
-    }
-  });
-}
-
+//Makes the book input functional.
 if (document.getElementById("bookInputSubmit")) {
   document.getElementById("bookInputSubmit").addEventListener("click", function (event) {
     event.preventDefault();
@@ -130,18 +82,19 @@ function bookapi() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       handleResponse(data);
       return data;
     })
   return bookData;
 };
 
+//clears all the child nodes so fresh data can be populated.
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
+
 
 function handleResponse(response) {
   for (var i = 0; i < response.items.length; i++) {
@@ -154,13 +107,15 @@ function handleResponse(response) {
     <div class="card-body text-center">
       <h5 class="card-title">${item.volumeInfo.title}</h5>
       <a href="${item.volumeInfo.previewLink}" target="_blank" class="btn btn-primary">BUY</a>
-      <h5>Bookmark</h5><span class="material-symbols-outlined" id="booksave${i}">bookmark</span>
+      <h5>Bookmark</h5>
+        <span id="booksave${i}" class="material-symbols-outlined">bookmark</span>
     </div>
   </div>
   `
-    document.querySelector(`#booksave${i}`).addEventListener("click", function (event) {
+  document.getElementById(`booksave${i}`).addEventListener("click", function (event) {
       event.preventDefault();
-      console.log(response.items[i].volumeInfo.imageLinks.thumbnail);
+      console.log('Hit');
+      //console.log(item.volumeInfo.imageLinks.thumbnail);
     });
   }
 }
