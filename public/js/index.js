@@ -15,7 +15,7 @@ document.getElementById("logo_name").addEventListener("click", function (event) 
   event.preventDefault();
   const getTerms = async () => {
     const count = 2;
-    const result = await fetch(`http://localhost:3001/api/random/${count}`, {
+    const result = await fetch(`/api/random/${count}`, {
       method: 'GET',
     });
     const json = await result.json();
