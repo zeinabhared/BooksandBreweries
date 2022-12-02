@@ -1,4 +1,16 @@
 {
+  "name": "booksandbreweries",
+  "description": "https://zeinabhared.github.io/BooksandBreweries/",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeinabhared/BooksandBreweries.git"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node ./seeds/index.js"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
@@ -11,18 +23,6 @@
     "nodemon": "^2.0.20",
     "path": "^0.12.7",
     "sequelize": "^6.24.0"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "seed": "node ./seeds/index.js"
-  },
-  "name": "booksandbreweries",
-  "description": "https://zeinabhared.github.io/BooksandBreweries/",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zeinabhared/BooksandBreweries.git"
   },
   "author": "",
   "license": "ISC",
