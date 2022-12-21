@@ -36,4 +36,8 @@ Profile Page
 
 ## Heroku Deployed Link: https://booksandbreweries2022.herokuapp.com/
 
-
+## Authors 
+Kristin Lynch
+Scott Gauthier
+Manuela Kenna
+Zeinab Hared 
