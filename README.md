@@ -34,7 +34,7 @@ Signup Page
 Profile Page
 ![Screenshot 4](./public/assets/images/screenshot4.png)
 
-## Heroku Deployed Link: https://booksandbreweries2022.herokuapp.com/
+## Heroku Deployed Link: https://bookclub-brewery22.herokuapp.com/
 
 ## Authors 
 Kristin Lynch |
